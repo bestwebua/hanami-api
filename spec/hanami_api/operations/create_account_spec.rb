@@ -1,14 +1,14 @@
-RSpec.describe RegisterAccount do
-  subject(:interactor) { described_class.new(dependencies) }
+RSpec.describe CreateAccount do
+  subject(:operation) { described_class.new(dependencies) }
 
   let(:repository) { instance_double('AccountRepository') }
   let(:password_generator_service) { class_double('PasswordGeneratorService') }
   let(:dependencies) { { repository: repository, password_generator_service: password_generator_service } }
 
-  it { expect(interactor).to be_a(Hanami::Interactor) }
+  it { expect(operation).to be_a(Hanami::Interactor) }
 
   describe '#call' do
-    subject(:result) { interactor.call(account_params) }
+    subject(:result) { operation.call(account_params) }
 
     let(:account_params) { attributes_for(:account) }
     let(:encrypted_password) { 'secure_password' }
