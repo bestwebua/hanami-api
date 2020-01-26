@@ -5,6 +5,7 @@ gem 'hanami',       '~> 1.3'
 gem 'hanami-model', '~> 1.3'
 gem 'pg', '~> 1.2', '>= 1.2.2'
 gem 'bcrypt', '~> 3.1', '>= 3.1.13'
+gem 'fast_jsonapi', '~> 1.5'
 
 group :development do
   gem 'shotgun', '~> 0.9.2', platforms: :ruby
