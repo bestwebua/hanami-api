@@ -22,6 +22,8 @@ end
 group :test do
   gem 'rspec', '~> 3.9'
   gem 'database_cleaner', '~> 1.7'
+  gem 'rack-test', '~> 1.1'
+  gem 'json_matchers', '~> 0.11.1'
 end
 
 group :production do

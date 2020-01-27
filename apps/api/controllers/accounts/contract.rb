@@ -7,7 +7,7 @@ module Api
             required(:email).filled(:str?, format?: /.+@.+/)
             required(:password).filled(:str?)
             required(:password_confirmation).filled(:str?)
-            rule(passwords_match: [:password, :password_confirmation]) { |p1, p2| p1.eql?(p2) }
+            rule(password_confirmation: [:password, :password_confirmation]) { |p1, p2| p2.eql?(p1) }
           end
         end
       end
