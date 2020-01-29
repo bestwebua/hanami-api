@@ -9,14 +9,22 @@ module Api
 
         params Api::Controllers::Accounts::Contract
 
+        def initialize(operation = CreateAccount.new)
+          @operation = operation
+        end
+
         def call(params)
           return respond_with(422, params.errors) unless params.valid?
 
-          operation = CreateAccount.new.call(params[:account])
-          return respond_with(422, operation.errors) unless operation.successful?
+          result = operation.call(params[:account])
+          return respond_with(422, result.errors) unless result.successful?
 
-          respond_with(201, operation.account, Api::Serializers::Account)
+          respond_with(201, result.account, Api::Serializers::Account)
         end
+
+        private
+
+        attr_reader :operation
       end
     end
   end
